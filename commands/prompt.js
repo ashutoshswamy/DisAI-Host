@@ -1,4 +1,3 @@
-const config = require("../config.json");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const discord = require("discord.js");
 
