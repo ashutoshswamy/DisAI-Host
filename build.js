@@ -1,4 +1,3 @@
-const config = require("./config.json");
 const { Routes } = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const fs = require("node:fs");
