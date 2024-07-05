@@ -18,10 +18,10 @@ for (const file of commandFiles) {
 
 const rest = new REST({
   version: "10",
-}).setToken(config.bot_token);
+}).setToken(process.env.bot_token);
 
 rest
-  .put(Routes.applicationCommands(config.client_id), {
+  .put(Routes.applicationCommands(process.env.client_id), {
     body: commands,
   })
   .then(() => {
