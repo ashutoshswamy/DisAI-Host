@@ -1,12 +1,16 @@
+const config = require("../config.json");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const discord = require("discord.js");
 
 module.exports = {
   data: new discord.SlashCommandBuilder()
     .setName("prompt")
-    .setDescription("Enter your prompt")
+    .setDescription("Ask your questions here")
     .addStringOption((option) =>
-      option.setName("prompt").setDescription("Prompt here").setRequired(true)
+      option
+        .setName("prompt")
+        .setDescription("Enter your prompt")
+        .setRequired(true)
     ),
   /**
    * @param {discord.Client} client
@@ -18,7 +22,7 @@ module.exports = {
     await interaction.deferReply();
 
     try {
-      const genAI = new GoogleGenerativeAI(process.env.gemini_api_key);
+      const genAI = new GoogleGenerativeAI(config.gemini_api_key);
 
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-flash",
