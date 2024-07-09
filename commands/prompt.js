@@ -1,4 +1,3 @@
-const config = require("../config.json");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const discord = require("discord.js");
 
@@ -22,7 +21,7 @@ module.exports = {
     await interaction.deferReply();
 
     try {
-      const genAI = new GoogleGenerativeAI(config.gemini_api_key);
+      const genAI = new GoogleGenerativeAI(process.env.gemini_api_key);
 
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-flash",
